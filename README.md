@@ -6,7 +6,8 @@
   [![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
   [![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.14-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-  [![Google Gemini](https://img.shields.io/badge/Google_Gemini-AI-4285F4?style=for-the-badge&logo=google-gemini&logoColor=white)](https://aistudio.google.com/)
+  [![Groq](https://img.shields.io/badge/Groq-LPU_Inference-f55036?style=for-the-badge&logo=groq&logoColor=white)](https://groq.com/)
+
 </div>
 
 ---
@@ -23,7 +24,8 @@ Aplikasi ini mengimplementasikan konsep **Data Warehouse (DW)** dan **Business I
 - **OLAP Cube Analysis**: Simulasi operasi Slice, Dice, dan Drill-down untuk eksplorasi data.
 - **KPI Tracking**: Monitoring indikator kinerja utama seperti volume sampah harian dan intensitas banjir.
 - **Decision Support System (DSS)**: Rekomendasi solusi berbasis data untuk wilayah prioritas (Jatibarang, Indramayu, Karangampel).
-- **AI Assistant Chatbot**: Didukung oleh **Google Gemini 1.5 Flash** untuk menjawab pertanyaan seputar konsep BI dan data lingkungan Indramayu.
+- **AI Assistant Chatbot**: Didukung oleh **Groq (Llama 3.3 70B)** untuk menjawab pertanyaan seputar konsep BI dan data lingkungan Indramayu dengan respon super cepat.
+
 
 ## 🛠️ Tech Stack
 
@@ -32,14 +34,16 @@ Aplikasi ini mengimplementasikan konsep **Data Warehouse (DW)** dan **Business I
 - **Styling**: Tailwind CSS 4 + Lucide Icons
 - **Animation**: Motion (formerly Framer Motion)
 - **Charts**: Recharts
-- **AI**: @google/genai (Gemini SDK)
+- **AI**: Groq API (Llama 3.3 70B Versatile)
+
 
 ## 💻 Getting Started
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+)
-- [Google AI Studio API Key](https://aistudio.google.com/)
+- [Groq API Key](https://console.groq.com/)
+
 
 ### Installation
 
@@ -55,17 +59,16 @@ Aplikasi ini mengimplementasikan konsep **Data Warehouse (DW)** dan **Business I
     ```
 
 3.  **Setup Environment Variables:**
-    Buat file `.env` di root directory dan tambahkan API Key Gemini Anda:
-    ```env
-    GEMINI_API_KEY="YOUR_API_KEY_HERE"
-    APP_URL="http://localhost:3000"
+    GROQ_API_KEY="YOUR_GROQ_API_KEY_HERE"
+    APP_URL="http://localhost:3001"
     ```
 
 4.  **Run locally:**
     ```bash
     npm run dev
     ```
-    Aplikasi akan berjalan di `http://localhost:3000`.
+    Aplikasi akan berjalan di `http://localhost:3001`.
+
 
 ## 📄 Documentation
 

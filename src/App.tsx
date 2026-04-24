@@ -41,11 +41,20 @@ import {
   Bot
 } from 'lucide-react';
 import { cn } from './lib/utils';
-import { GoogleGenAI } from "@google/genai";
+// Removed Gemini, switching to Groq
+
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+// Initialize Groq configuration
+const GROQ_CONFIG = {
+  // Use a safer access pattern for Vite's defined environment variables
+  apiKey: (import.meta.env.VITE_GROQ_API_KEY as string) || (process.env as any).GROQ_API_KEY || '',
+  baseUrl: 'https://api.groq.com/openai/v1',
+  model: 'llama-3.3-70b-versatile'
+};
+
+
 
 // --- DATA FROM THE REPORT ---
 
@@ -119,9 +128,10 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
             onClick={() => setActivePage('home')}
             className="flex items-center gap-3 group cursor-pointer"
           >
-            <div className="w-11 h-11 bg-linear-to-br from-brand-600 to-brand-700 rounded-xl flex items-center justify-center shadow-primary-cta transition-transform group-hover:rotate-6">
-              <ShieldCheck className="text-white h-7 w-7" />
+            <div className="bg-brand-600 p-0.5 rounded-full shadow-lg shadow-brand-200 group-hover:rotate-6 transition-transform overflow-hidden border-2 border-white">
+              <img src="/favicon.png" alt="EcoTrust Logo" className="h-9 w-9 rounded-full object-cover" />
             </div>
+
             <div className="flex flex-col items-start leading-none">
               <span className="text-2xl font-extrabold text-slate-900 tracking-tight">EcoTrust <span className="text-brand-600">SIKC</span></span>
               <span className="text-[10px] font-bold text-slate-500 tracking-[0.25em] mt-1.5 uppercase">Indramayu Intelligence</span>
@@ -1169,6 +1179,15 @@ const ChatBot = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    if (!GROQ_CONFIG.apiKey) {
+      console.error("CRITICAL: GROQ_API_KEY is missing!");
+    }
+  }, []);
+
+
+
+
   const handleSendMessage = async () => {
     if (!input.trim() || isLoading) return;
 
@@ -1178,39 +1197,59 @@ const ChatBot = () => {
     setIsLoading(true);
 
     try {
-      const response = await ai.models.generateContent({
-        model: "gemini-1.5-flash",
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: `Anda adalah asisten AI untuk aplikasi EcoTrust SIKC (Sistem Informasi Kota Cerdas) Kabupaten Indramayu. 
-            Aplikasi ini membahas Laporan Individu 2 tentang arsitektur Data Warehouse (DW) dan Business Intelligence (BI) untuk masalah Lingkungan (Sampah & Banjir). 
-            
-            Informasi Penting:
-            - Penulis: Muhammad Rifqy Saputra (SIKC 3B Polindra 2026).
-            - Fokus: Sampah & Banjir di Indramayu (Kecamatan Indramayu, Jatibarang, Karangampel).
-            - Konsep BI: Fact Table (Fact_Lingkungan), Dimensi (Time, Location, Category), Star Schema, OLAP Cube (Slice, Dice, Drill-down), KPI, DSS.
-            - Hasil Akhir: Rekomendasi pengelolaan sampah & banjir di Jatibarang.
-            
-            Jawablah pertanyaan pengguna dengan gaya profesional, informatif, dan ramah. Gunakan Bahasa Indonesia.
-            Pastikan respon Anda terstruktur dengan baik menggunakan Markdown (gunakan bold untuk poin penting, list untuk daftar, dsb) agar terlihat rapi dan mudah dibaca.
-            
-            User message: ${input}` }]
-          }
-        ],
-        config: {
-          systemInstruction: "Anda adalah asisten cerdas EcoTrust SIKC yang membantu menjelaskan konsep Data Warehouse dan Business Intelligence untuk Kabupaten Indramayu. Gunakan format markdown yang rapi."
-        }
+      if (!GROQ_CONFIG.apiKey) {
+        throw new Error('API Key Groq tidak ditemukan.');
+      }
+
+      const response = await fetch(`${GROQ_CONFIG.baseUrl}/chat/completions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${GROQ_CONFIG.apiKey}`
+        },
+        body: JSON.stringify({
+          model: GROQ_CONFIG.model,
+          messages: [
+            {
+              role: "system",
+              content: "Anda adalah asisten cerdas EcoTrust SIKC. Bantu user memahami konsep DW dan BI dalam konteks pengelolaan lingkungan (Sampah & Banjir) di Indramayu. Jawablah dengan profesional, edukatif, dan ramah dalam Bahasa Indonesia. Gunakan format Markdown yang rapi (bold, list, table)."
+            },
+            {
+              role: "user",
+              content: `Konteks Aplikasi:
+              Penulis: Muhammad Rifqy Saputra (SIKC 3B Polindra).
+              Wilayah: Indramayu, Jatibarang, Karangampel.
+              
+              Pertanyaan User: ${userMessage.content}`
+            }
+          ],
+          temperature: 0.7,
+          max_tokens: 1024
+        })
       });
 
-      const assistantMessage = { role: 'assistant' as const, content: response.text || 'Maaf, saya mengalami kendala teknis.' };
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error?.message || 'Gagal terhubung ke Groq');
+      }
+
+      const data = await response.json();
+      const aiText = data.choices[0]?.message?.content || 'Maaf, saya menerima respon kosong.';
+
+      const assistantMessage = { role: 'assistant' as const, content: aiText };
       setMessages(prev => [...prev, assistantMessage]);
-    } catch (error) {
-      console.error('Chat Error:', error);
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Terjadi kesalahan saat menghubungkan ke AI. Pastikan koneksi dan API Key tersedia.' }]);
+    } catch (error: any) {
+      console.error('Chat Error Details:', error);
+      const errorMsg = error.message?.includes('Key') 
+        ? 'API Key Groq tidak valid. Pastikan file .env sudah benar.'
+        : 'Terjadi gangguan koneksi ke Groq. Mohon coba lagi beberapa saat lagi.';
+      
+      setMessages(prev => [...prev, { role: 'assistant', content: errorMsg }]);
     } finally {
       setIsLoading(false);
     }
+
+
   };
 
   return (
@@ -1383,9 +1422,10 @@ export default function App() {
       <footer className="bg-white border-t border-slate-100 py-12 relative z-10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center shadow-primary-cta">
-              <ShieldCheck className="text-white h-5 w-5" />
+            <div className="bg-brand-600 p-0.5 rounded-full shadow-lg shadow-brand-200 overflow-hidden border-2 border-white">
+              <img src="/favicon.png" alt="EcoTrust Logo" className="h-8 w-8 rounded-full object-cover" />
             </div>
+
             <span className="text-xl font-black text-slate-900 tracking-tight">EcoTrust <span className="text-brand-600">SIKC</span></span>
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-slate-400 text-xs font-bold">
