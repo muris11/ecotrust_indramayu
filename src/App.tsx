@@ -147,9 +147,13 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
           </div>
           
           <div className="flex items-center gap-4">
-             <button className="hidden sm:block text-[11px] font-extrabold text-brand-700 bg-brand-50 px-5 py-2.5 rounded-full border border-brand-100 hover:bg-brand-100 transition-colors">
-                Laporan Individu 2
-             </button>
+             <a 
+                href="/laporan.pdf" 
+                download="2307046_Muhammad Rifqy Saputra_SIKC 3B_Tugas Individu 2.pdf"
+                className="hidden sm:block text-[11px] font-extrabold text-brand-700 bg-brand-50 px-5 py-2.5 rounded-full border border-brand-100 hover:bg-brand-100 transition-colors"
+             >
+                Download Laporan
+             </a>
              <button className="lg:hidden p-2.5 text-slate-700 bg-slate-100 rounded-xl" onClick={() => setIsOpen(!isOpen)}>
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
              </button>
@@ -1175,7 +1179,7 @@ const ChatBot = () => {
 
     try {
       const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-1.5-flash",
         contents: [
           {
             role: "user",
