@@ -203,7 +203,7 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
 // --- 3D VISUAL COMPONENTS ---
 
 const IsometricCubeVisual = () => (
-  <div className="flex flex-col md:flex-row gap-10 items-start justify-center">
+  <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start justify-center">
     {/* Cube with Axes */}
     <div className="relative w-full max-w-[320px] aspect-square flex items-center justify-center">
       <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-2xl">
@@ -255,9 +255,9 @@ const IsometricCubeVisual = () => (
     </div>
 
     {/* Info Side */}
-    <div className="flex-1 w-full space-y-6">
-       <div className="bg-slate-900 text-white rounded-2xl overflow-hidden shadow-lg border border-slate-700">
-          <table className="w-full text-[11px] leading-tight">
+    <div className="flex-1 w-full space-y-6 overflow-hidden">
+       <div className="bg-slate-900 text-white rounded-2xl overflow-x-auto shadow-lg border border-slate-700">
+          <table className="w-full min-w-[300px] text-[11px] leading-tight">
              <thead>
                 <tr className="bg-brand-700">
                    <th className="p-3 text-center border-r border-brand-800">Dimensi</th>
@@ -837,13 +837,13 @@ const KPIPage = () => (
 const CubePage = () => (
   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
     {/* --- Header --- */}
-    <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-16 bg-white p-10 rounded-[48px] border border-slate-200 shadow-soft relative overflow-hidden">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 mb-12 md:mb-16 bg-white p-6 md:p-10 rounded-3xl md:rounded-[48px] border border-slate-200 shadow-soft relative overflow-hidden">
       <div className="relative z-10 flex-1">
         <div className="flex items-center gap-6 mb-6">
           <div className="w-20 h-20 bg-brand-600 rounded-3xl flex items-center justify-center text-white shadow-primary-cta">
              <Box className="h-12 w-12" />
           </div>
-          <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase">Langkah 6 - Analisis Cube</h2>
+          <h2 className="text-3xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase">Langkah 6 - Analisis Cube</h2>
         </div>
         <p className="text-slate-600 font-medium text-lg leading-relaxed max-w-4xl">
           OLAP mendukung operasi seperti <span className="text-brand-600 font-bold italic">slice, dice, drill-down,</span> dan <span className="text-brand-600 font-bold italic">roll-up</span> untuk menganalisis 
@@ -860,15 +860,15 @@ const CubePage = () => (
     <div className="grid lg:grid-cols-2 lg:grid-rows-2 gap-8">
       
       {/* 1. Bentuk Cube */}
-      <div className="bg-white p-10 rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 relative overflow-hidden group">
+      <div className="bg-white p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 relative overflow-hidden group">
         <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform">
            <Layers className="h-24 w-24 text-brand-600" />
         </div>
         <div className="flex items-center gap-4 mb-10 relative z-10">
           <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">1</div>
-          <h3 className="text-3xl font-black text-slate-900 tracking-tight">1. Bentuk Cube</h3>
+          <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">1. Bentuk Cube</h3>
         </div>
-        <div className="mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-between">
+        <div className="mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
            <span className="text-slate-500 font-bold text-sm">Cube Structure:</span>
            <span className="text-brand-700 font-black text-lg tracking-tight uppercase">Time × Loc × Cat</span>
         </div>
@@ -878,18 +878,18 @@ const CubePage = () => (
       </div>
 
       {/* 2. Contoh Slice */}
-      <div className="bg-white p-10 rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
+      <div className="bg-white p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">2</div>
-          <h3 className="text-3xl font-black text-slate-900 tracking-tight">2. Contoh Slice</h3>
+          <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">2. Contoh Slice</h3>
         </div>
         <p className="text-slate-500 font-bold mb-8 text-sm flex items-center gap-2">
            <Scissors className="h-4 w-4 text-brand-600" />
            Slice berdasarkan Category = <span className="text-brand-700 font-black px-2 py-0.5 bg-brand-50 rounded-md">Sampah</span>
         </p>
 
-        <div className="bg-slate-900 rounded-[32px] overflow-hidden mb-10 shadow-2xl border border-white/5">
-           <table className="w-full text-left">
+        <div className="bg-slate-900 rounded-3xl md:rounded-[32px] overflow-x-auto mb-10 shadow-2xl border border-white/5">
+           <table className="w-full min-w-[500px] text-left">
               <thead>
                  <tr className="bg-brand-700 text-white text-[10px] uppercase font-black tracking-widest">
                     <th className="p-4 border-r border-brand-800">Tahun/Bulan</th>
@@ -933,10 +933,10 @@ const CubePage = () => (
       </div>
 
       {/* 3. Contoh Dice */}
-      <div className="bg-white p-10 rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
+      <div className="bg-white p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">3</div>
-          <h3 className="text-3xl font-black text-slate-900 tracking-tight">3. Contoh Dice</h3>
+          <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">3. Contoh Dice</h3>
         </div>
         <div className="flex flex-wrap gap-2 mb-8">
            {['Time = Q1 2024', 'Location = Indramayu/Jatibarang', 'Category = Sampah/Banjir'].map((f, i) => (
@@ -944,8 +944,8 @@ const CubePage = () => (
            ))}
         </div>
 
-        <div className="bg-slate-900 rounded-[32px] overflow-hidden mb-10 shadow-2xl border border-white/5">
-           <table className="w-full text-left">
+        <div className="bg-slate-900 rounded-3xl md:rounded-[32px] overflow-x-auto mb-10 shadow-2xl border border-white/5">
+           <table className="w-full min-w-[500px] text-left">
               <thead>
                  <tr className="bg-brand-700 text-white text-[10px] uppercase font-black tracking-widest">
                     <th className="p-4 border-r border-brand-800">Bulan</th>
@@ -995,14 +995,14 @@ const CubePage = () => (
       </div>
 
       {/* 4. Contoh Drill-Down */}
-      <div className="bg-white p-10 rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
+      <div className="bg-white p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">4</div>
-          <h3 className="text-3xl font-black text-slate-900 tracking-tight">4. Contoh Drill-Down</h3>
+          <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">4. Contoh Drill-Down</h3>
         </div>
         <p className="text-slate-500 font-medium mb-10 text-sm italic">Drill-down adalah analisis dari level umum ke level detail:</p>
 
-        <div className="flex justify-center items-center gap-6 py-8 bg-slate-50 rounded-[32px] mb-10 border border-slate-100 shadow-inner">
+        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 py-8 bg-slate-50 rounded-[32px] mb-10 border border-slate-100 shadow-inner">
            <div className="flex flex-col items-center">
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Low-res</span>
               <span className="font-black text-slate-900 text-lg">Tahun</span>
@@ -1019,8 +1019,8 @@ const CubePage = () => (
            </div>
         </div>
 
-        <div className="bg-slate-900 rounded-[32px] overflow-hidden mb-10 shadow-2xl border border-white/5">
-           <table className="w-full text-left">
+        <div className="bg-slate-900 rounded-3xl md:rounded-[32px] overflow-x-auto mb-10 shadow-2xl border border-white/5">
+           <table className="w-full min-w-[400px] text-left">
               <thead>
                  <tr className="bg-teal-700 text-white text-[10px] uppercase font-black tracking-widest">
                     <th className="p-4 border-r border-teal-800">Bulanan</th>
