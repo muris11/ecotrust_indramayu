@@ -20,6 +20,7 @@ import {
   Layers,
   ListFilter,
   ChevronRight,
+  ChevronDown,
   Database,
   Search,
   Users2,
@@ -122,7 +123,7 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
 
   return (
     <nav className="sticky top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-20">
           <button 
             onClick={() => setActivePage('home')}
@@ -205,7 +206,7 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
 const IsometricCubeVisual = () => (
   <div className="flex flex-col md:flex-row gap-10 items-start justify-center">
     {/* Cube with Axes */}
-    <div className="relative w-full max-w-[320px] aspect-square flex items-center justify-center">
+    <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-square flex items-center justify-center mx-auto">
       <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-2xl">
         <motion.g
           initial={{ y: 20, opacity: 0 }}
@@ -255,8 +256,8 @@ const IsometricCubeVisual = () => (
     </div>
 
     {/* Info Side */}
-    <div className="flex-1 w-full space-y-6">
-       <div className="bg-slate-900 text-white rounded-2xl overflow-hidden shadow-lg border border-slate-700">
+    <div className="flex-1 w-full space-y-6 overflow-hidden">
+       <div className="bg-slate-900 text-white rounded-2xl overflow-x-auto shadow-lg border border-slate-700">
           <table className="w-full text-[11px] leading-tight">
              <thead>
                 <tr className="bg-brand-700">
@@ -308,7 +309,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (p: string) => void }) => (
   <motion.div 
     initial={{ opacity: 0 }} 
     animate={{ opacity: 1 }} 
-    className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20"
+    className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16 lg:py-20"
   >
     {/* --- Hero Section --- */}
     <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
@@ -322,12 +323,12 @@ const HomePage = ({ onNavigate }: { onNavigate: (p: string) => void }) => (
           <span className="text-xs font-black uppercase tracking-[0.2em] text-brand-600">Smart City Laporan Individu 2</span>
         </motion.div>
         
-        <h1 className="text-5xl md:text-7xl font-[900] text-slate-900 leading-[1.05] tracking-tight mb-8">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-[900] text-slate-900 leading-[1.05] tracking-tight mb-8">
           Sistem Informasi <br />
           <span className="text-gradient">Kota Cerdas.</span>
         </h1>
         
-        <p className="text-slate-500 text-xl font-medium leading-relaxed mb-10 max-w-xl">
+        <p className="text-slate-500 text-lg sm:text-xl font-medium leading-relaxed mb-10 max-w-xl">
           Transformasi data lingkungan (Sampah & Banjir) menjadi keputusan strategis melalui arsitektur <b>Data Warehouse</b> dan <b>Business Intelligence</b> di Kabupaten Indramayu.
         </p>
         
@@ -523,22 +524,22 @@ const HomePage = ({ onNavigate }: { onNavigate: (p: string) => void }) => (
     </div>
 
     {/* --- Comprehensive 9-Step Roadmap --- */}
-    <div className="bg-slate-900 rounded-[64px] p-12 lg:p-24 text-white relative overflow-hidden">
+    <div className="bg-slate-900 rounded-[48px] md:rounded-[64px] p-8 md:p-12 lg:p-24 text-white relative overflow-hidden">
       <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
         <LayoutDashboard className="w-96 h-96" />
       </div>
       
       <div className="relative z-10">
-        <div className="max-w-3xl mb-24">
+        <div className="max-w-3xl mb-12 md:mb-24">
           <motion.p 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="text-brand-500 font-black uppercase tracking-[0.3em] text-sm mb-4"
+            className="text-brand-500 font-black uppercase tracking-[0.3em] text-xs sm:text-sm mb-4"
           >
             BI Development Lifecycle
           </motion.p>
-          <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-none">Alur Kerja Laporan Individu 2</h2>
-          <p className="text-slate-400 text-xl font-medium max-w-xl">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-8 tracking-tighter leading-none">Alur Kerja Laporan Individu 2</h2>
+          <p className="text-slate-400 text-lg sm:text-xl font-medium max-w-xl">
             Metodologi komprehensif dari identifikasi fundamental hingga implementasi Sistem Pendukung Keputusan.
           </p>
         </div>
@@ -626,21 +627,21 @@ const StarSchemaVisual = () => (
 );
 
 const WarehousePage = () => (
-  <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-    <div className="mb-16">
+  <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16">
+    <div className="mb-12 md:mb-16 text-center">
       <div className="text-brand-600 font-black text-sm uppercase tracking-[0.3em] mb-4">Langkah 01 - 02</div>
-      <h2 className="text-4xl md:text-5xl font-[800] text-slate-900 tracking-tighter uppercase leading-none">Model & Kebutuhan Data.</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Model & Kebutuhan Data.</h2>
     </div>
 
     <div className="grid lg:grid-cols-3 gap-12 mb-16">
       <div className="lg:col-span-2 space-y-12">
-        <div className="bg-white overflow-hidden rounded-[48px] border border-slate-200 shadow-soft">
-          <div className="p-10 bg-slate-900 text-white flex justify-between items-center relative overflow-hidden">
+        <div className="bg-white overflow-hidden rounded-[32px] md:rounded-[48px] border border-slate-200 shadow-soft">
+          <div className="p-6 md:p-10 bg-slate-900 text-white flex justify-between items-center relative overflow-hidden">
             <div className="relative z-10">
-              <h3 className="text-2xl font-black tracking-tight flex items-center gap-3">
-                 <Database className="text-brand-500 h-8 w-8" /> 1. Identifikasi Fact Table
+              <h3 className="text-lg md:text-xl font-black tracking-tight flex items-center gap-3">
+                 <Database className="text-brand-500 h-6 w-6 md:h-8 md:w-8" /> 1. Identifikasi Fact Table
               </h3>
-              <p className="text-xs text-brand-500 font-black uppercase tracking-[0.2em] mt-2 italic">Fact_Lingkungan (Indramayu City Context)</p>
+              <p className="text-[10px] text-brand-500 font-black uppercase tracking-[0.2em] mt-2 italic">Fact_Lingkungan (Indramayu City Context)</p>
             </div>
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-3xl opacity-50" />
           </div>
@@ -676,14 +677,14 @@ const WarehousePage = () => (
 
         <div className="bg-brand-50 p-10 rounded-[56px] border border-brand-100 relative overflow-hidden shadow-inner">
            <div className="relative z-10">
-              <h4 className="text-2xl font-black text-brand-900 mb-6 flex items-center gap-3 underline decoration-brand-200">
+              <h4 className="text-xl font-black text-brand-900 mb-6 flex items-center gap-3 underline decoration-brand-200">
                  <Search className="h-6 w-6 text-brand-600" /> 2. Analytical Questions
               </h4>
               <div className="grid md:grid-cols-2 gap-4">
                  {ANALYTICAL_QUESTIONS.map((q, i) => (
                    <div key={i} className="p-5 bg-white rounded-3xl border border-brand-200 shadow-sm flex gap-4 hover:shadow-md transition-shadow">
                       <span className="text-brand-600 font-black text-xs">0{i+1}.</span>
-                      <p className="text-xs font-bold text-slate-700 leading-normal">{q}</p>
+                      <p className="text-[11px] font-bold text-slate-700 leading-normal">{q}</p>
                    </div>
                  ))}
               </div>
@@ -704,19 +705,19 @@ const WarehousePage = () => (
                 { n: "Category / Kategori", v: "Sampah | Banjir", c: "bg-slate-100 text-slate-500", i: Box },
               ].map((dim, i) => (
                 <div key={i} className="flex gap-5 group">
-                   <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-all group-hover:scale-110", dim.c)}>
-                      <dim.i className="h-6 w-6" />
+                   <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-all group-hover:scale-110", dim.c)}>
+                      <dim.i className="h-5 w-5" />
                    </div>
                    <div>
-                      <p className="font-extrabold text-slate-900 mb-1">{dim.n}</p>
-                      <div className="inline-block px-3 py-1 bg-slate-50 rounded-full border border-slate-100 text-[10px] font-black text-slate-400 uppercase tracking-widest">{dim.v}</div>
+                      <p className="font-extrabold text-slate-900 mb-1 text-sm">{dim.n}</p>
+                      <div className="inline-block px-3 py-1 bg-slate-50 rounded-full border border-slate-100 text-[9px] font-black text-slate-400 uppercase tracking-widest">{dim.v}</div>
                    </div>
                 </div>
               ))}
            </div>
            
            <div className="mt-12 p-6 bg-slate-900 rounded-[32px] text-white overflow-hidden relative">
-              <p className="text-xs font-bold leading-relaxed text-slate-300 relative z-10">
+              <p className="text-[11px] font-bold leading-relaxed text-slate-300 relative z-10">
                  "DW ini menggunakan <span className="text-brand-500">Star Schema</span> untuk mendukung performa OLAP."
               </p>
               <Database className="absolute -bottom-4 -left-4 h-16 w-16 text-white/5 opacity-20 rotate-12" />
@@ -730,15 +731,16 @@ const WarehousePage = () => (
 );
 
 const KPIPage = () => (
-  <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-    <div className="mb-16">
+  <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16">
+    <div className="mb-12 md:mb-16">
       <div className="text-brand-600 font-black text-sm uppercase tracking-[0.3em] mb-4">Langkah 03 - 05</div>
-      <h2 className="text-4xl md:text-5xl font-[800] text-slate-900 tracking-tighter">Strategi & Indikator.</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Strategi & Indikator</h2>
+      <p className="text-slate-400 font-medium max-w-2xl mt-4 md:mt-6 text-sm sm:text-base">Menentukan indikator kinerja utama dan pemetaan kebutuhan data untuk mendukung analisis strategis.</p>
     </div>
 
     <div className="flex items-center gap-2 mb-12">
       <div className="w-1.5 h-6 bg-brand-600 rounded-full" />
-      <h2 className="text-3xl font-black text-slate-900 tracking-tight">Step 03-05: KPI & Data Metadata</h2>
+      <h2 className="text-2xl font-black text-slate-900 tracking-tight">Step 03-05: KPI & Data Metadata</h2>
     </div>
 
     <div className="grid lg:grid-cols-4 gap-8">
@@ -746,26 +748,26 @@ const KPIPage = () => (
         <div className="bg-white p-10 rounded-[48px] border border-slate-200 shadow-soft">
            <div className="flex items-center gap-3 mb-10">
               <Users2 className="text-brand-600 h-7 w-7" />
-              <h3 className="text-2xl font-black text-slate-900 tracking-tight">3. Identifikasi Stakeholder</h3>
+              <h3 className="text-xl font-black text-slate-900 tracking-tight">3. Identifikasi Stakeholder</h3>
            </div>
            <div className="grid md:grid-cols-2 gap-8">
               {STAKEHOLDERS.map((s, i) => (
                 <div key={i} className="p-8 rounded-[32px] border border-slate-100 bg-slate-50/40 hover:bg-white hover:shadow-hover hover:border-brand-100 transition-all group">
                    <div className="flex justify-between items-start mb-6">
-                      <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-brand-50 group-hover:text-brand-600 transition-all">
-                         <Users className="h-6 w-6" />
+                      <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-brand-50 group-hover:text-brand-600 transition-all">
+                         <Users className="h-5 w-5" />
                       </div>
                       <span className="text-[9px] font-black text-slate-400 tracking-[0.2em] uppercase py-1.5 px-3 border border-slate-200 rounded-full">Level: Priority</span>
                    </div>
-                   <h4 className="font-extrabold text-slate-900 text-lg mb-4 tracking-tight group-hover:text-brand-700">{s.name}</h4>
+                   <h4 className="font-extrabold text-slate-900 text-base mb-4 tracking-tight group-hover:text-brand-700">{s.name}</h4>
                    <div className="space-y-5">
                       <div>
-                         <p className="text-[10px] font-black text-brand-600 uppercase tracking-widest mb-1.5">Butuh Informasi</p>
-                         <p className="text-sm text-slate-600 font-medium leading-relaxed">{s.needs}</p>
+                         <p className="text-[9px] font-black text-brand-600 uppercase tracking-widest mb-1.5">Butuh Informasi</p>
+                         <p className="text-xs text-slate-600 font-medium leading-relaxed">{s.needs}</p>
                       </div>
                       <div className="pt-4 border-t border-slate-100">
-                         <p className="text-[10px] font-black text-accent-600 uppercase tracking-widest mb-1.5">Tujuan Strategis</p>
-                         <p className="text-sm font-bold text-slate-900 leading-relaxed">{s.goal}</p>
+                         <p className="text-[9px] font-black text-accent-600 uppercase tracking-widest mb-1.5">Tujuan Strategis</p>
+                         <p className="text-xs font-bold text-slate-900 leading-relaxed">{s.goal}</p>
                       </div>
                    </div>
                 </div>
@@ -779,17 +781,17 @@ const KPIPage = () => (
            </div>
            <div className="relative z-10">
              <div className="flex items-center gap-3 mb-12">
-                <Trophy className="text-brand-400 h-7 w-7" />
-                <h3 className="text-2xl font-black tracking-tight">Penentuan KPI (Langkah 4)</h3>
+                <Trophy className="text-brand-400 h-6 w-6" />
+                <h3 className="text-xl font-black tracking-tight">Penentuan KPI (Langkah 4)</h3>
              </div>
              <div className="grid md:grid-cols-2 gap-10">
                 {KPI_LIST.map((k, i) => (
                   <div key={i} className="space-y-3 p-6 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm">
-                     <h5 className="font-black text-brand-500 text-lg tracking-tight uppercase text-sm">KPI: {k.name}</h5>
-                     <p className="text-slate-400 text-xs leading-relaxed">{k.def}</p>
+                     <h5 className="font-black text-brand-500 text-sm tracking-tight uppercase">KPI: {k.name}</h5>
+                     <p className="text-slate-400 text-[10px] leading-relaxed">{k.def}</p>
                      <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-500/10 border border-brand-500/20 rounded-full">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-brand-600" />
-                        <span className="text-[10px] font-black text-brand-600 uppercase tracking-widest">Target: {k.target}</span>
+                        <CheckCircle2 className="h-3 w-3 text-brand-600" />
+                        <span className="text-[9px] font-black text-brand-600 uppercase tracking-widest">Target: {k.target}</span>
                      </div>
                   </div>
                 ))}
@@ -800,32 +802,32 @@ const KPIPage = () => (
 
       <div className="space-y-8">
          <div className="bg-brand-600 rounded-[40px] p-8 text-white">
-            <h4 className="font-black text-xl mb-6 tracking-tight">5. Mapping to Warehouse</h4>
+            <h4 className="font-black text-lg mb-6 tracking-tight">5. Mapping to Warehouse</h4>
             <div className="space-y-6">
                <div className="p-4 bg-white/10 rounded-2xl border border-white/10">
-                  <p className="text-[10px] font-black text-brand-200 uppercase tracking-widest mb-1">Measure Name</p>
-                  <p className="text-sm font-bold">jumlah_pengaduan</p>
+                  <p className="text-[9px] font-black text-brand-200 uppercase tracking-widest mb-1">Measure Name</p>
+                  <p className="text-xs font-bold">jumlah_pengaduan</p>
                </div>
                <div className="p-4 bg-white/10 rounded-2xl border border-white/10">
-                  <p className="text-[10px] font-black text-brand-200 uppercase tracking-widest mb-1">Measure Name</p>
-                  <p className="text-sm font-bold">volume_sampah</p>
+                  <p className="text-[9px] font-black text-brand-200 uppercase tracking-widest mb-1">Measure Name</p>
+                  <p className="text-xs font-bold">volume_sampah</p>
                </div>
                <div className="p-4 bg-white/10 rounded-2xl border border-white/10">
-                  <p className="text-[10px] font-black text-brand-200 uppercase tracking-widest mb-1">Measure Name</p>
-                  <p className="text-sm font-bold">kejadian_banjir</p>
+                  <p className="text-[9px] font-black text-brand-200 uppercase tracking-widest mb-1">Measure Name</p>
+                  <p className="text-xs font-bold">kejadian_banjir</p>
                </div>
             </div>
-            <div className="mt-8 pt-8 border-t border-white/10 text-xs text-brand-100/60 leading-relaxed">
+            <div className="mt-8 pt-8 border-t border-white/10 text-[10px] text-brand-100/60 leading-relaxed">
                Semua KPI di atas dipetakan langsung ke Field Numerik di Tabel Fakta untuk memfasilitasi agregasi OLAP.
             </div>
          </div>
          
          <div className="bg-white p-8 rounded-[40px] border border-slate-100 shadow-soft">
-            <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center mb-6">
-               <TrendingUp className="text-slate-400 h-6 w-6" />
+            <div className="w-10 h-10 bg-slate-50 rounded-2xl flex items-center justify-center mb-6">
+               <TrendingUp className="text-slate-400 h-5 w-5" />
             </div>
-            <h4 className="font-black text-slate-900 mb-4 tracking-tight">Tren KPI</h4>
-            <p className="text-xs text-slate-500 leading-relaxed">
+            <h4 className="font-black text-sm text-slate-900 mb-4 tracking-tight">Tren KPI</h4>
+            <p className="text-[10px] text-slate-500 leading-relaxed">
                Dashboard memvisualisasikan perubahan KPI dari bulan ke bulan untuk memantau peningkatan atau penurunan masalah secara real-time.
             </p>
          </div>
@@ -835,42 +837,28 @@ const KPIPage = () => (
 );
 
 const CubePage = () => (
-  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-    {/* --- Header --- */}
-    <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-16 bg-white p-10 rounded-[48px] border border-slate-200 shadow-soft relative overflow-hidden">
-      <div className="relative z-10 flex-1">
-        <div className="flex items-center gap-6 mb-6">
-          <div className="w-20 h-20 bg-brand-600 rounded-3xl flex items-center justify-center text-white shadow-primary-cta">
-             <Box className="h-12 w-12" />
-          </div>
-          <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase">Langkah 6 - Analisis Cube</h2>
-        </div>
-        <p className="text-slate-600 font-medium text-lg leading-relaxed max-w-4xl">
-          OLAP mendukung operasi seperti <span className="text-brand-600 font-bold italic">slice, dice, drill-down,</span> dan <span className="text-brand-600 font-bold italic">roll-up</span> untuk menganalisis 
-          data dari berbagai sudut pandang. Slice memilih satu nilai dimensi tertentu, sedangkan 
-          dice memilih beberapa nilai dari beberapa dimensi untuk membentuk sub-cube.
-        </p>
-      </div>
-      <div className="hidden lg:block w-32 h-32 opacity-10 absolute -right-4 -top-4 rotate-12">
-         <Monitor className="w-full h-full text-brand-600" />
-      </div>
+  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16 overflow-x-hidden">
+    <div className="mb-12 md:mb-16 text-center">
+      <div className="text-brand-600 font-black text-sm uppercase tracking-[0.3em] mb-4">Langkah 06 - 07</div>
+      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase">Analisis Cube & OLAP</h2>
+      <p className="text-slate-400 font-medium max-w-2xl mx-auto mt-4 md:mt-6 text-sm sm:text-base">Mengeksplorasi data multidimensi untuk menemukan pola tersembunyi melalui operasi Slice, Dice, Drill-Down, dan Roll-Up.</p>
     </div>
 
     {/* --- 4 Quadrant Grid --- */}
-    <div className="grid lg:grid-cols-2 lg:grid-rows-2 gap-8">
+    <div className="grid lg:grid-cols-2 gap-8">
       
       {/* 1. Bentuk Cube */}
-      <div className="bg-white p-10 rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 relative overflow-hidden group">
+      <div className="bg-white p-5 sm:p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 relative overflow-hidden group">
         <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform">
            <Layers className="h-24 w-24 text-brand-600" />
         </div>
         <div className="flex items-center gap-4 mb-10 relative z-10">
-          <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">1</div>
-          <h3 className="text-3xl font-black text-slate-900 tracking-tight">1. Bentuk Cube</h3>
+          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">1</div>
+          <h3 className="text-2xl font-black text-slate-900 tracking-tight">1. Bentuk Cube</h3>
         </div>
-        <div className="mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-between">
-           <span className="text-slate-500 font-bold text-sm">Cube Structure:</span>
-           <span className="text-brand-700 font-black text-lg tracking-tight uppercase">Time × Loc × Cat</span>
+        <div className="mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+           <span className="text-slate-500 font-bold text-xs uppercase tracking-wider">Cube Structure:</span>
+           <span className="text-brand-700 font-black text-sm tracking-tight uppercase">Time × Loc × Cat</span>
         </div>
         <div className="flex-1">
            <IsometricCubeVisual />
@@ -878,18 +866,18 @@ const CubePage = () => (
       </div>
 
       {/* 2. Contoh Slice */}
-      <div className="bg-white p-10 rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
+      <div className="bg-white p-5 sm:p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">2</div>
-          <h3 className="text-3xl font-black text-slate-900 tracking-tight">2. Contoh Slice</h3>
+          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">2</div>
+          <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">2. Contoh Slice</h3>
         </div>
-        <p className="text-slate-500 font-bold mb-8 text-sm flex items-center gap-2">
+        <p className="text-slate-500 font-bold mb-8 text-xs flex items-center gap-2">
            <Scissors className="h-4 w-4 text-brand-600" />
            Slice berdasarkan Category = <span className="text-brand-700 font-black px-2 py-0.5 bg-brand-50 rounded-md">Sampah</span>
         </p>
 
-        <div className="bg-slate-900 rounded-[32px] overflow-hidden mb-10 shadow-2xl border border-white/5">
-           <table className="w-full text-left">
+        <div className="bg-slate-900 rounded-3xl md:rounded-[32px] overflow-x-auto mb-10 shadow-2xl border border-white/5">
+           <table className="w-full min-w-[500px] text-left">
               <thead>
                  <tr className="bg-brand-700 text-white text-[10px] uppercase font-black tracking-widest">
                     <th className="p-4 border-r border-brand-800">Tahun/Bulan</th>
@@ -898,45 +886,45 @@ const CubePage = () => (
                     <th className="p-4 text-center">Pengaduan</th>
                  </tr>
               </thead>
-              <tbody className="text-xs font-bold text-slate-300">
+              <tbody className="text-[11px] font-bold text-slate-300">
                  <tr className="border-b border-slate-800 hover:bg-white/5 transition-colors">
                     <td className="p-4">2024 / Jan</td>
                     <td className="p-4">Indramayu</td>
                     <td className="p-4 font-black text-brand-400">Sampah</td>
-                    <td className="p-4 text-center text-white text-base">120</td>
+                    <td className="p-4 text-center text-white">120</td>
                  </tr>
                  <tr className="border-b border-slate-800 hover:bg-white/5 transition-colors">
                     <td className="p-4">2024 / Jan</td>
                     <td className="p-4">Jatibarang</td>
                     <td className="p-4 font-black text-brand-400">Sampah</td>
-                    <td className="p-4 text-center text-white text-base">150</td>
+                    <td className="p-4 text-center text-white">150</td>
                  </tr>
                  <tr className="hover:bg-white/5 transition-colors">
                     <td className="p-4">2024 / Feb</td>
                     <td className="p-4">Karangampel</td>
                     <td className="p-4 font-black text-brand-400">Sampah</td>
-                    <td className="p-4 text-center text-white text-base">180</td>
+                    <td className="p-4 text-center text-white">180</td>
                  </tr>
               </tbody>
            </table>
         </div>
 
         <div className="mt-auto bg-brand-50 p-6 rounded-[32px] border border-brand-100 flex gap-5 items-start">
-           <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-soft shrink-0">
-              <Lightbulb className="text-brand-600 h-6 w-6" />
+           <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center shadow-soft shrink-0">
+              <Lightbulb className="text-brand-600 h-5 w-5" />
            </div>
            <div>
-              <p className="font-black text-brand-700 uppercase tracking-widest text-[11px] mb-2">Makna Analisis:</p>
-              <p className="text-sm text-slate-700 leading-relaxed font-semibold">Analisis hanya melihat satu nilai dimensi tertentu, sedangkan <strong>slice</strong> membantu pemerintah mengetahui wilayah mana yang memiliki isu sampah paling tinggi.</p>
+              <p className="font-black text-brand-700 uppercase tracking-widest text-[10px] mb-2">Makna Analisis:</p>
+              <p className="text-xs text-slate-700 leading-relaxed font-semibold">Analisis hanya melihat satu nilai dimensi tertentu, sedangkan <strong>slice</strong> membantu pemerintah mengetahui wilayah mana yang memiliki isu sampah paling tinggi.</p>
            </div>
         </div>
       </div>
 
       {/* 3. Contoh Dice */}
-      <div className="bg-white p-10 rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
+      <div className="bg-white p-5 sm:p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">3</div>
-          <h3 className="text-3xl font-black text-slate-900 tracking-tight">3. Contoh Dice</h3>
+          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">3</div>
+          <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">3. Contoh Dice</h3>
         </div>
         <div className="flex flex-wrap gap-2 mb-8">
            {['Time = Q1 2024', 'Location = Indramayu/Jatibarang', 'Category = Sampah/Banjir'].map((f, i) => (
@@ -944,8 +932,8 @@ const CubePage = () => (
            ))}
         </div>
 
-        <div className="bg-slate-900 rounded-[32px] overflow-hidden mb-10 shadow-2xl border border-white/5">
-           <table className="w-full text-left">
+        <div className="bg-slate-900 rounded-3xl md:rounded-[32px] overflow-x-auto mb-10 shadow-2xl border border-white/5">
+           <table className="w-full min-w-[500px] text-left">
               <thead>
                  <tr className="bg-brand-700 text-white text-[10px] uppercase font-black tracking-widest">
                     <th className="p-4 border-r border-brand-800">Bulan</th>
@@ -954,7 +942,7 @@ const CubePage = () => (
                     <th className="p-4 text-center">Data</th>
                  </tr>
               </thead>
-              <tbody className="text-xs font-bold text-slate-300">
+              <tbody className="text-[11px] font-bold text-slate-300">
                  <tr className="border-b border-slate-800">
                     <td className="p-4 text-slate-400">Jan</td>
                     <td className="p-4">Indramayu</td>
@@ -984,43 +972,43 @@ const CubePage = () => (
         </div>
 
         <div className="mt-auto bg-brand-50 p-6 rounded-[32px] border border-brand-100 flex gap-5 items-start">
-           <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-soft shrink-0">
-              <Box className="text-brand-600 h-6 w-6" />
+           <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center shadow-soft shrink-0">
+              <Box className="text-brand-600 h-5 w-5" />
            </div>
            <div>
-              <p className="font-black text-brand-700 uppercase tracking-widest text-[11px] mb-2">Makna Analisis:</p>
-              <p className="text-sm text-slate-700 leading-relaxed font-semibold"><strong>Dice</strong> digunakan untuk mengambil subset data yang lebih spesifik, yaitu hanya pada Q1 2024, dua kecamatan tertentu, dan dua kategori masalah.</p>
+              <p className="font-black text-brand-700 uppercase tracking-widest text-[10px] mb-2">Makna Analisis:</p>
+              <p className="text-xs text-slate-700 leading-relaxed font-semibold"><strong>Dice</strong> digunakan untuk mengambil subset data yang lebih spesifik, yaitu hanya pada Q1 2024, dua kecamatan tertentu, dan dua kategori masalah.</p>
            </div>
         </div>
       </div>
 
       {/* 4. Contoh Drill-Down */}
-      <div className="bg-white p-10 rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
+      <div className="bg-white p-5 sm:p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">4</div>
-          <h3 className="text-3xl font-black text-slate-900 tracking-tight">4. Contoh Drill-Down</h3>
+          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">4</div>
+          <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">4. Contoh Drill-Down</h3>
         </div>
-        <p className="text-slate-500 font-medium mb-10 text-sm italic">Drill-down adalah analisis dari level umum ke level detail:</p>
+        <p className="text-slate-500 font-medium mb-10 text-xs italic">Drill-down adalah analisis dari level umum ke level detail:</p>
 
-        <div className="flex justify-center items-center gap-6 py-8 bg-slate-50 rounded-[32px] mb-10 border border-slate-100 shadow-inner">
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 py-8 bg-slate-50 rounded-[32px] mb-10 border border-slate-100 shadow-inner">
            <div className="flex flex-col items-center">
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Low-res</span>
-              <span className="font-black text-slate-900 text-lg">Tahun</span>
+              <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Low-res</span>
+              <span className="font-black text-slate-900 text-sm">Tahun</span>
            </div>
            <ChevronRight className="h-4 w-4 text-slate-300" />
            <div className="flex flex-col items-center">
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Med-res</span>
-              <span className="font-black text-slate-900 text-lg">Triwulan</span>
+              <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Med-res</span>
+              <span className="font-black text-slate-900 text-sm">Triwulan</span>
            </div>
            <ChevronRight className="h-4 w-4 text-slate-300" />
            <div className="flex flex-col items-center">
-              <span className="text-[10px] font-black text-brand-400 uppercase tracking-widest mb-1">Detailed</span>
-              <span className="font-black text-brand-600 text-lg">Bulan</span>
+              <span className="text-[9px] font-black text-brand-400 uppercase tracking-widest mb-1">Detailed</span>
+              <span className="font-black text-brand-600 text-sm">Bulan</span>
            </div>
         </div>
 
-        <div className="bg-slate-900 rounded-[32px] overflow-hidden mb-10 shadow-2xl border border-white/5">
-           <table className="w-full text-left">
+        <div className="bg-slate-900 rounded-3xl md:rounded-[32px] overflow-x-auto mb-10 shadow-2xl border border-white/5">
+           <table className="w-full min-w-[500px] text-left">
               <thead>
                  <tr className="bg-teal-700 text-white text-[10px] uppercase font-black tracking-widest">
                     <th className="p-4 border-r border-teal-800">Bulanan</th>
@@ -1028,20 +1016,20 @@ const CubePage = () => (
                     <th className="p-4 text-center">Banjir</th>
                  </tr>
               </thead>
-              <tbody className="text-xs font-bold text-slate-300">
+              <tbody className="text-[11px] font-bold text-slate-300">
                  <tr className="border-b border-slate-800 bg-white/5">
                     <td className="p-4 text-white font-black">Januari</td>
-                    <td className="p-4 text-center text-brand-400 text-base">270</td>
+                    <td className="p-4 text-center text-brand-400">270</td>
                     <td className="p-4 text-center">15</td>
                  </tr>
                  <tr className="border-b border-slate-800 bg-white/5">
                     <td className="p-4 text-white font-black">Februari</td>
-                    <td className="p-4 text-center text-brand-400 text-base">270</td>
+                    <td className="p-4 text-center text-brand-400">270</td>
                     <td className="p-4 text-center">16</td>
                  </tr>
                  <tr className="bg-white/5">
                     <td className="p-4 text-white font-black">Maret</td>
-                    <td className="p-4 text-center text-brand-400 text-base">110</td>
+                    <td className="p-4 text-center text-brand-400">110</td>
                     <td className="p-4 text-center">8</td>
                  </tr>
               </tbody>
@@ -1049,12 +1037,54 @@ const CubePage = () => (
         </div>
 
         <div className="mt-auto bg-brand-50 p-6 rounded-[32px] border border-brand-100 flex gap-5 items-start">
-           <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-soft shrink-0">
-              <TrendingUp className="text-brand-600 h-6 w-6" />
+           <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center shadow-soft shrink-0">
+              <TrendingUp className="text-brand-600 h-5 w-5" />
            </div>
            <div>
-              <p className="font-black text-brand-700 uppercase tracking-widest text-[11px] mb-2">Makna Analisis:</p>
-              <p className="text-sm text-slate-700 leading-relaxed font-semibold">Terlihat bahwa bulan Januari dan Februari memiliki jumlah pengaduan paling tinggi, memberikan insight operasional yang kritikal.</p>
+              <p className="font-black text-brand-700 uppercase tracking-widest text-[10px] mb-2">Makna Analisis:</p>
+              <p className="text-xs text-slate-700 leading-relaxed font-semibold">Terlihat bahwa bulan Januari dan Februari memiliki jumlah pengaduan paling tinggi, memberikan insight operasional yang kritikal.</p>
+           </div>
+        </div>
+      </div>
+
+      {/* 5. Contoh Roll-Up */}
+      <div className="bg-white p-5 sm:p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group lg:col-span-2">
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">5</div>
+          <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">5. Contoh Roll-Up</h3>
+        </div>
+        <p className="text-slate-500 font-medium mb-10 text-xs">Roll-up adalah kebalikan dari drill-down, di mana data diringkas ke tingkat yang lebih tinggi (agregasi).</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+           <div className="bg-slate-50 p-8 rounded-[32px] border border-slate-100">
+              <div className="flex items-center gap-4 mb-6">
+                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-soft">
+                    <MapPin className="text-slate-400 h-5 w-5" />
+                 </div>
+                 <span className="font-black text-slate-900 uppercase tracking-widest text-[9px]">Hierarchy Level</span>
+              </div>
+              <div className="space-y-4">
+                 <div className="flex items-center justify-between p-4 bg-white rounded-2xl shadow-soft border border-slate-100">
+                    <span className="font-bold text-slate-600 text-xs">Level Detail</span>
+                    <span className="font-black text-slate-900 text-xs">Kecamatan</span>
+                 </div>
+                 <div className="flex justify-center">
+                    <ChevronDown className="h-5 w-5 text-brand-300" />
+                 </div>
+                 <div className="flex items-center justify-between p-4 bg-brand-600 rounded-2xl shadow-lg border border-brand-500">
+                    <span className="font-bold text-brand-100 text-xs">Level Agregat</span>
+                    <span className="font-black text-white text-xs">Kabupaten</span>
+                 </div>
+              </div>
+           </div>
+
+           <div className="space-y-6 flex flex-col justify-center">
+              <div className="bg-brand-50 p-8 rounded-[32px] border border-brand-100">
+                 <p className="font-black text-brand-700 uppercase tracking-widest text-[10px] mb-3">Analisis:</p>
+                 <p className="text-xs text-slate-700 leading-relaxed font-semibold">
+                    Langkah ini memungkinkan pemerintah melihat statistik agregat seluruh wilayah Indramayu untuk perencanaan anggaran tahunan tingkat provinsi atau nasional.
+                 </p>
+              </div>
            </div>
         </div>
       </div>
@@ -1064,11 +1094,11 @@ const CubePage = () => (
 );
 
 const DecisionPage = () => (
-  <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-    <div className="mb-16">
+  <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16 overflow-x-hidden">
+    <div className="mb-12 md:mb-16">
       <div className="text-brand-600 font-black text-sm uppercase tracking-[0.3em] mb-4 text-center">Langkah 08 - 09</div>
-      <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter text-center uppercase">Hasil & Integrasi DSS</h2>
-      <p className="text-slate-400 font-medium text-center max-w-2xl mx-auto mt-6">Tahap akhir untuk merumuskan keputusan strategis berdasarkan kecerdasan bisnis yang telah dikelola.</p>
+      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 tracking-tighter text-center uppercase leading-none">Hasil & Integrasi DSS</h2>
+      <p className="text-slate-400 font-medium text-center max-w-2xl mx-auto mt-4 md:mt-6 text-sm sm:text-base">Tahap akhir untuk merumuskan keputusan strategis berdasarkan kecerdasan bisnis yang telah dikelola.</p>
     </div>
 
     <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -1076,16 +1106,16 @@ const DecisionPage = () => (
         <div className="bg-white p-10 rounded-[48px] border border-slate-100 shadow-soft">
            <div className="flex items-center gap-3 mb-10">
               <CheckCircle2 className="text-brand-500 h-7 w-7" />
-              <h3 className="text-2xl font-black text-slate-900 tracking-tight">Keputusan DSS Strategis</h3>
+              <h3 className="text-xl font-black text-slate-900 tracking-tight">Keputusan DSS Strategis</h3>
            </div>
            
            <div className="space-y-8">
               <div className="p-8 rounded-3xl bg-brand-50 border border-brand-100 group hover:shadow-lg transition-all">
-                 <h4 className="font-black text-brand-900 text-lg mb-4 flex justify-between items-center">
+                 <h4 className="font-black text-brand-900 text-base mb-4 flex justify-between items-center">
                     Keputusan Terbaik 
-                    <span className="px-3 py-1 bg-brand-600 text-white text-[10px] font-black rounded-lg">FINAL VOTE</span>
+                    <span className="px-3 py-1 bg-brand-600 text-white text-[9px] font-black rounded-lg">FINAL VOTE</span>
                  </h4>
-                 <p className="text-brand-900/70 text-sm italic font-medium leading-relaxed">
+                 <p className="text-brand-900/70 text-xs italic font-medium leading-relaxed">
                     "Menggabungkan Alternatif 1 (Pengelolaan Sampah) dan Alternatif 2 (Mitigasi Banjir) dengan titik fokus utama di Kecamatan Jatibarang."
                  </p>
               </div>
