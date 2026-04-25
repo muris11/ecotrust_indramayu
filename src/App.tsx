@@ -323,7 +323,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (p: string) => void }) => (
           <span className="text-xs font-black uppercase tracking-[0.2em] text-brand-600">Smart City Laporan Individu 2</span>
         </motion.div>
         
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-[900] text-slate-900 leading-[1.05] tracking-tight mb-8">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-[900] text-slate-900 leading-[1.05] tracking-tight mb-8">
           Sistem Informasi <br />
           <span className="text-gradient">Kota Cerdas.</span>
         </h1>
@@ -448,7 +448,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (p: string) => void }) => (
           >
             Data Intelligence Overview
           </motion.p>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter leading-tight">Representasi Visual <br />Kondisi Wilayah.</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter leading-tight">Representasi Visual <br />Kondisi Wilayah.</h2>
         </div>
         <div className="flex gap-4">
            <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-2xl border border-slate-100 shadow-sm">
@@ -630,7 +630,7 @@ const WarehousePage = () => (
   <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16">
     <div className="mb-12 md:mb-16 text-center">
       <div className="text-brand-600 font-black text-sm uppercase tracking-[0.3em] mb-4">Langkah 01 - 02</div>
-      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Model & Kebutuhan Data.</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase leading-none">Model & Kebutuhan Data.</h2>
     </div>
 
     <div className="grid lg:grid-cols-3 gap-12 mb-16">
@@ -732,7 +732,7 @@ const KPIPage = () => (
   <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16">
     <div className="mb-12 md:mb-16">
       <div className="text-brand-600 font-black text-sm uppercase tracking-[0.3em] mb-4">Langkah 03 - 05</div>
-      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Strategi & Indikator</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase leading-none">Strategi & Indikator</h2>
       <p className="text-slate-400 font-medium max-w-2xl mt-4 md:mt-6 text-sm sm:text-base">Menentukan indikator kinerja utama and pemetaan kebutuhan data untuk mendukung analisis strategis.</p>
     </div>
 
@@ -843,7 +843,7 @@ const CubePage = () => (
           <div className="w-16 h-16 sm:w-20 sm:h-20 bg-brand-600 rounded-3xl flex items-center justify-center text-white shadow-primary-cta shrink-0">
              <Box className="h-8 w-8 sm:h-12 sm:w-12" />
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase leading-none">Langkah 6 - Analisis Cube</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Langkah 6 - Analisis Cube</h2>
         </div>
         <p className="text-slate-600 font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-4xl">
           OLAP mendukung operasi seperti <span className="text-brand-600 font-bold italic">slice, dice, drill-down,</span> and <span className="text-brand-600 font-bold italic">roll-up</span> untuk menganalisis 
@@ -1109,7 +1109,7 @@ const DecisionPage = () => (
   <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16 overflow-x-hidden">
     <div className="mb-12 md:mb-16">
       <div className="text-brand-600 font-black text-sm uppercase tracking-[0.3em] mb-4 text-center">Langkah 08 - 09</div>
-      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 tracking-tighter text-center uppercase leading-none">Hasil & Integrasi DSS</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tighter text-center uppercase leading-none">Hasil & Integrasi DSS</h2>
       <p className="text-slate-400 font-medium text-center max-w-2xl mx-auto mt-4 md:mt-6 text-sm sm:text-base">Tahap akhir untuk merumuskan keputusan strategis berdasarkan kecerdasan bisnis yang telah dikelola.</p>
     </div>
 
