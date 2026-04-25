@@ -88,16 +88,16 @@ const ANALYTICAL_QUESTIONS = [
 
 const STAKEHOLDERS = [
   { name: "Dinas Lingkungan Hidup", needs: "Data volume sampah, jumlah pengaduan, wilayah bermasalah.", goal: "Menentukan prioritas pengangkutan sampah." },
-  { name: "BPBD", needs: "Data kejadian banjir berdasarkan kecamatan dan waktu.", goal: "Menentukan wilayah rawan banjir dan rencana mitigasi." },
+  { name: "BPBD", needs: "Data kejadian banjir berdasarkan kecamatan and waktu.", goal: "Menentukan wilayah rawan banjir and rencana mitigasi." },
   { name: "Bappeda", needs: "Ringkasan KPI lingkungan, tren masalah.", goal: "Mendukung perencanaan kebijakan Smart City." },
   { name: "Masyarakat", needs: "Informasi pengaduan, tindak lanjut pemerintah.", goal: "Meningkatkan transparansi pelayanan publik." }
 ];
 
 const KPI_LIST = [
-  { name: "Total Pengaduan", def: "Jumlah seluruh pengaduan terkait sampah dan banjir.", target: "Menurun setiap bulan" },
-  { name: "Total Volume Sampah", def: "Jumlah volume sampah yang tercatat per wilayah.", target: "Terkendali dan tidak meningkat tajam" },
+  { name: "Total Pengaduan", def: "Jumlah seluruh pengaduan terkait sampah and banjir.", target: "Menurun setiap bulan" },
+  { name: "Total Volume Sampah", def: "Jumlah volume sampah yang tercatat per wilayah.", target: "Terkendali and tidak meningkat tajam" },
   { name: "Total Kejadian Banjir", def: "Jumlah kejadian banjir pada setiap kecamatan.", target: "Menurun" },
-  { name: "Kecamatan Prioritas", def: "Kecamatan dengan kombinasi pengaduan, sampah, dan banjir tertinggi.", target: "Menjadi prioritas penanganan" }
+  { name: "Kecamatan Prioritas", def: "Kecamatan dengan kombinasi pengaduan, sampah, and banjir tertinggi.", target: "Menjadi prioritas penanganan" }
 ];
 
 // --- HELPERS ---
@@ -204,7 +204,7 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
 // --- 3D VISUAL COMPONENTS ---
 
 const IsometricCubeVisual = () => (
-  <div className="flex flex-col md:flex-row gap-10 items-start justify-center">
+  <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start justify-center">
     {/* Cube with Axes */}
     <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-square flex items-center justify-center mx-auto">
       <svg viewBox="0 0 400 400" className="w-full h-full drop-shadow-2xl">
@@ -258,7 +258,7 @@ const IsometricCubeVisual = () => (
     {/* Info Side */}
     <div className="flex-1 w-full space-y-6 overflow-hidden">
        <div className="bg-slate-900 text-white rounded-2xl overflow-x-auto shadow-lg border border-slate-700">
-          <table className="w-full text-[11px] leading-tight">
+          <table className="w-full min-w-[300px] text-[11px] leading-tight">
              <thead>
                 <tr className="bg-brand-700">
                    <th className="p-3 text-center border-r border-brand-800">Dimensi</th>
@@ -329,7 +329,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (p: string) => void }) => (
         </h1>
         
         <p className="text-slate-500 text-lg sm:text-xl font-medium leading-relaxed mb-10 max-w-xl">
-          Transformasi data lingkungan (Sampah & Banjir) menjadi keputusan strategis melalui arsitektur <b>Data Warehouse</b> dan <b>Business Intelligence</b> di Kabupaten Indramayu.
+          Transformasi data lingkungan (Sampah & Banjir) menjadi keputusan strategis melalui arsitektur <b>Data Warehouse</b> and <b>Business Intelligence</b> di Kabupaten Indramayu.
         </p>
         
         <div className="grid sm:grid-cols-2 gap-5 mb-10">
@@ -423,7 +423,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (p: string) => void }) => (
         </div>
         <h3 className="text-2xl font-black text-slate-900 mb-4">Manajemen Sampah</h3>
         <p className="text-slate-600 font-medium leading-relaxed">
-          Analisis volume harian dan kapasitas TPA di Indramayu untuk optimalisasi rute pengangkutan dan pengurangan titik pembuangan liar.
+          Analisis volume harian and kapasitas TPA di Indramayu untuk optimalisasi rute pengangkutan and pengurangan titik pembuangan liar.
         </p>
       </div>
       <div className="bg-white/40 backdrop-blur-xl border border-slate-200 rounded-[40px] p-10 group hover:border-accent-400 transition-all">
@@ -432,7 +432,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (p: string) => void }) => (
         </div>
         <h3 className="text-2xl font-black text-slate-900 mb-4">Mitigasi Banjir</h3>
         <p className="text-slate-600 font-medium leading-relaxed">
-          Pemantauan intensitas genangan dan drainase perkotaan untuk deteksi dini risiko banjir di wilayah rawan bencana Kabupaten Indramayu.
+          Pemantauan intensitas genangan and drainase perkotaan untuk deteksi dini risiko banjir di wilayah rawan bencana Kabupaten Indramayu.
         </p>
       </div>
     </div>
@@ -550,7 +550,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (p: string) => void }) => (
             { id: 'Step 3', t: 'Stakeholders', d: 'Pemetaan User & Institusi yang membutuhkan Dashboard Intelijen ini.', p: 'kpi' },
             { id: 'Step 4', t: 'KPI Setup', d: 'Penentuan Key Performance Indicators untuk Sampah & Banjir.', p: 'kpi' },
             { id: 'Step 5', t: 'Attributes', d: 'Penyusunan Metrik & Atribut data untuk kedalaman analisis.', p: 'warehouse' },
-            { id: 'Step 6-7', t: 'OLAP Cube', d: 'Operasi Slice, Dice, dan Drill-down untuk menemukan Insight kritis.', p: 'cube' },
+            { id: 'Step 6-7', t: 'OLAP Cube', d: 'Operasi Slice, Dice, and Drill-down untuk menemukan Insight kritis.', p: 'cube' },
             { id: 'Step 8-9', t: 'Decision Support', d: 'Evaluasi Alternatif & Keputusan Akhir berbasis Data BI.', p: 'decision' },
           ].map((step, i) => (
             <motion.div
@@ -645,34 +645,32 @@ const WarehousePage = () => (
             </div>
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-3xl opacity-50" />
           </div>
-          <tbody className="text-xs font-bold">
-            <div className="p-8 overflow-x-auto">
-              <table className="w-full text-left font-mono">
-                <thead>
-                  <tr className="border-b border-slate-100">
-                    <th className="pb-6 font-black text-slate-400 text-[10px] uppercase tracking-widest px-6 italic">Field Name</th>
-                    <th className="pb-6 font-black text-slate-400 text-[10px] uppercase tracking-widest px-6 italic">Definition & Metadata</th>
+          <div className="p-8 overflow-x-auto">
+            <table className="w-full text-left font-mono">
+              <thead>
+                <tr className="border-b border-slate-100">
+                  <th className="pb-6 font-black text-slate-400 text-[10px] uppercase tracking-widest px-6 italic">Field Name</th>
+                  <th className="pb-6 font-black text-slate-400 text-[10px] uppercase tracking-widest px-6 italic">Definition & Metadata</th>
+                </tr>
+              </thead>
+              <tbody className="text-[11px] font-bold">
+                {[
+                  { k: "id_fact", d: "Primary Key - Identitas Unik Laporan (Serial)" },
+                  { k: "id_waktu", d: "Foreign Key - Relasi ke Dim_Waktu" },
+                  { k: "id_lokasi", d: "Foreign Key - Relasi ke Dim_Lokasi" },
+                  { k: "id_kategori", d: "Foreign Key - Relasi ke Dim_Kategori" },
+                  { k: "jumlah_pengaduan", d: "Measure - Total Laporan Masyarakat (Numeric)" },
+                  { k: "volume_sampah", d: "Measure - Kapasitas Sampah (Ton/Hari)" },
+                  { k: "kejadian_banjir", d: "Measure - Intensitas Banjir Tercatat" },
+                ].map((row, i) => (
+                  <tr key={i} className="border-b border-slate-50 last:border-0 hover:bg-slate-50/80 transition-colors group">
+                    <td className="py-5 font-black text-slate-900 px-6 group-hover:text-brand-600">{row.k}</td>
+                    <td className="py-5 text-slate-500 px-6 font-medium italic opacity-70">{row.d}</td>
                   </tr>
-                </thead>
-                <tbody className="text-[11px]">
-                  {[
-                    { k: "id_fact", d: "Primary Key - Identitas Unik Laporan (Serial)" },
-                    { k: "id_waktu", d: "Foreign Key - Relasi ke Dim_Waktu" },
-                    { k: "id_lokasi", d: "Foreign Key - Relasi ke Dim_Lokasi" },
-                    { k: "id_kategori", d: "Foreign Key - Relasi ke Dim_Kategori" },
-                    { k: "jumlah_pengaduan", d: "Measure - Total Laporan Masyarakat (Numeric)" },
-                    { k: "volume_sampah", d: "Measure - Kapasitas Sampah (Ton/Hari)" },
-                    { k: "kejadian_banjir", d: "Measure - Intensitas Banjir Tercatat" },
-                  ].map((row, i) => (
-                    <tr key={i} className="border-b border-slate-50 last:border-0 hover:bg-slate-50/80 transition-colors group">
-                      <td className="py-5 font-black text-slate-900 px-6 group-hover:text-brand-600">{row.k}</td>
-                      <td className="py-5 text-slate-500 px-6 font-medium italic opacity-70">{row.d}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </tbody>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div className="bg-brand-50 p-10 rounded-[56px] border border-brand-100 relative overflow-hidden shadow-inner">
@@ -735,7 +733,7 @@ const KPIPage = () => (
     <div className="mb-12 md:mb-16">
       <div className="text-brand-600 font-black text-sm uppercase tracking-[0.3em] mb-4">Langkah 03 - 05</div>
       <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-none">Strategi & Indikator</h2>
-      <p className="text-slate-400 font-medium max-w-2xl mt-4 md:mt-6 text-sm sm:text-base">Menentukan indikator kinerja utama dan pemetaan kebutuhan data untuk mendukung analisis strategis.</p>
+      <p className="text-slate-400 font-medium max-w-2xl mt-4 md:mt-6 text-sm sm:text-base">Menentukan indikator kinerja utama and pemetaan kebutuhan data untuk mendukung analisis strategis.</p>
     </div>
 
     <div className="flex items-center gap-2 mb-12">
@@ -838,10 +836,24 @@ const KPIPage = () => (
 
 const CubePage = () => (
   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16 overflow-x-hidden">
-    <div className="mb-12 md:mb-16 text-center">
-      <div className="text-brand-600 font-black text-sm uppercase tracking-[0.3em] mb-4">Langkah 06 - 07</div>
-      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase">Analisis Cube & OLAP</h2>
-      <p className="text-slate-400 font-medium max-w-2xl mx-auto mt-4 md:mt-6 text-sm sm:text-base">Mengeksplorasi data multidimensi untuk menemukan pola tersembunyi melalui operasi Slice, Dice, Drill-Down, dan Roll-Up.</p>
+    {/* --- Header --- */}
+    <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 mb-12 md:mb-16 bg-white p-6 md:p-10 rounded-3xl md:rounded-[48px] border border-slate-200 shadow-soft relative overflow-hidden">
+      <div className="relative z-10 flex-1">
+        <div className="flex items-center gap-6 mb-6">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-brand-600 rounded-3xl flex items-center justify-center text-white shadow-primary-cta shrink-0">
+             <Box className="h-8 w-8 sm:h-12 sm:w-12" />
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase leading-none">Langkah 6 - Analisis Cube</h2>
+        </div>
+        <p className="text-slate-600 font-medium text-sm sm:text-base md:text-lg leading-relaxed max-w-4xl">
+          OLAP mendukung operasi seperti <span className="text-brand-600 font-bold italic">slice, dice, drill-down,</span> and <span className="text-brand-600 font-bold italic">roll-up</span> untuk menganalisis 
+          data dari berbagai sudut pandang. Slice memilih satu nilai dimensi tertentu, sedangkan 
+          dice memilih beberapa nilai dari beberapa dimensi untuk membentuk sub-cube.
+        </p>
+      </div>
+      <div className="hidden lg:block w-32 h-32 opacity-10 absolute -right-4 -top-4 rotate-12">
+         <Monitor className="w-full h-full text-brand-600" />
+      </div>
     </div>
 
     {/* --- 4 Quadrant Grid --- */}
@@ -853,12 +865,12 @@ const CubePage = () => (
            <Layers className="h-24 w-24 text-brand-600" />
         </div>
         <div className="flex items-center gap-4 mb-10 relative z-10">
-          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">1</div>
-          <h3 className="text-2xl font-black text-slate-900 tracking-tight">1. Bentuk Cube</h3>
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg sm:text-xl">1</div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 tracking-tight">1. Bentuk Cube</h3>
         </div>
-        <div className="mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-           <span className="text-slate-500 font-bold text-xs uppercase tracking-wider">Cube Structure:</span>
-           <span className="text-brand-700 font-black text-sm tracking-tight uppercase">Time × Loc × Cat</span>
+        <div className="mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+           <span className="text-slate-500 font-bold text-xs sm:text-sm">Cube Structure:</span>
+           <span className="text-brand-700 font-black text-base sm:text-lg tracking-tight uppercase">Time × Loc × Cat</span>
         </div>
         <div className="flex-1">
            <IsometricCubeVisual />
@@ -868,8 +880,8 @@ const CubePage = () => (
       {/* 2. Contoh Slice */}
       <div className="bg-white p-5 sm:p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">2</div>
-          <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">2. Contoh Slice</h3>
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg sm:text-xl">2</div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 tracking-tight">2. Contoh Slice</h3>
         </div>
         <p className="text-slate-500 font-bold mb-8 text-xs flex items-center gap-2">
            <Scissors className="h-4 w-4 text-brand-600" />
@@ -923,8 +935,8 @@ const CubePage = () => (
       {/* 3. Contoh Dice */}
       <div className="bg-white p-5 sm:p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">3</div>
-          <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">3. Contoh Dice</h3>
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg sm:text-xl">3</div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 tracking-tight">3. Contoh Dice</h3>
         </div>
         <div className="flex flex-wrap gap-2 mb-8">
            {['Time = Q1 2024', 'Location = Indramayu/Jatibarang', 'Category = Sampah/Banjir'].map((f, i) => (
@@ -977,7 +989,7 @@ const CubePage = () => (
            </div>
            <div>
               <p className="font-black text-brand-700 uppercase tracking-widest text-[10px] mb-2">Makna Analisis:</p>
-              <p className="text-xs text-slate-700 leading-relaxed font-semibold"><strong>Dice</strong> digunakan untuk mengambil subset data yang lebih spesifik, yaitu hanya pada Q1 2024, dua kecamatan tertentu, dan dua kategori masalah.</p>
+              <p className="text-xs text-slate-700 leading-relaxed font-semibold"><strong>Dice</strong> digunakan untuk mengambil subset data yang lebih spesifik, yaitu hanya pada Q1 2024, dua kecamatan tertentu, and dua kategori masalah.</p>
            </div>
         </div>
       </div>
@@ -985,8 +997,8 @@ const CubePage = () => (
       {/* 4. Contoh Drill-Down */}
       <div className="bg-white p-5 sm:p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">4</div>
-          <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">4. Contoh Drill-Down</h3>
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg sm:text-xl">4</div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 tracking-tight">4. Contoh Drill-Down</h3>
         </div>
         <p className="text-slate-500 font-medium mb-10 text-xs italic">Drill-down adalah analisis dari level umum ke level detail:</p>
 
@@ -1008,7 +1020,7 @@ const CubePage = () => (
         </div>
 
         <div className="bg-slate-900 rounded-3xl md:rounded-[32px] overflow-x-auto mb-10 shadow-2xl border border-white/5">
-           <table className="w-full min-w-[500px] text-left">
+           <table className="w-full min-w-[400px] sm:min-w-[500px] text-left">
               <thead>
                  <tr className="bg-teal-700 text-white text-[10px] uppercase font-black tracking-widest">
                     <th className="p-4 border-r border-teal-800">Bulanan</th>
@@ -1042,7 +1054,7 @@ const CubePage = () => (
            </div>
            <div>
               <p className="font-black text-brand-700 uppercase tracking-widest text-[10px] mb-2">Makna Analisis:</p>
-              <p className="text-xs text-slate-700 leading-relaxed font-semibold">Terlihat bahwa bulan Januari dan Februari memiliki jumlah pengaduan paling tinggi, memberikan insight operasional yang kritikal.</p>
+              <p className="text-xs text-slate-700 leading-relaxed font-semibold">Terlihat bahwa bulan Januari and Februari memiliki jumlah pengaduan paling tinggi, memberikan insight operasional yang kritikal.</p>
            </div>
         </div>
       </div>
@@ -1050,8 +1062,8 @@ const CubePage = () => (
       {/* 5. Contoh Roll-Up */}
       <div className="bg-white p-5 sm:p-6 md:p-10 rounded-[32px] md:rounded-[56px] border border-slate-200 shadow-soft h-full flex flex-col border-t-8 border-t-brand-600 group lg:col-span-2">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-10 h-10 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg">5</div>
-          <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">5. Contoh Roll-Up</h3>
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-lg sm:text-xl">5</div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 tracking-tight">5. Contoh Roll-Up</h3>
         </div>
         <p className="text-slate-500 font-medium mb-10 text-xs">Roll-up adalah kebalikan dari drill-down, di mana data diringkas ke tingkat yang lebih tinggi (agregasi).</p>
 
@@ -1116,7 +1128,7 @@ const DecisionPage = () => (
                     <span className="px-3 py-1 bg-brand-600 text-white text-[9px] font-black rounded-lg">FINAL VOTE</span>
                  </h4>
                  <p className="text-brand-900/70 text-xs italic font-medium leading-relaxed">
-                    "Menggabungkan Alternatif 1 (Pengelolaan Sampah) dan Alternatif 2 (Mitigasi Banjir) dengan titik fokus utama di Kecamatan Jatibarang."
+                    "Menggabungkan Alternatif 1 (Pengelolaan Sampah) and Alternatif 2 (Mitigasi Banjir) dengan titik fokus utama di Kecamatan Jatibarang."
                  </p>
               </div>
               
@@ -1242,7 +1254,7 @@ const ChatBot = () => {
           messages: [
             {
               role: "system",
-              content: "Anda adalah asisten cerdas EcoTrust SIKC. Bantu user memahami konsep DW dan BI dalam konteks pengelolaan lingkungan (Sampah & Banjir) di Indramayu. Jawablah dengan profesional, edukatif, dan ramah dalam Bahasa Indonesia. Gunakan format Markdown yang rapi (bold, list, table)."
+              content: "Anda adalah asisten cerdas EcoTrust SIKC. Bantu user memahami konsep DW and BI dalam konteks pengelolaan lingkungan (Sampah & Banjir) di Indramayu. Jawablah dengan profesional, edukatif, and ramah dalam Bahasa Indonesia. Gunakan format Markdown yang rapi (bold, list, table)."
             },
             {
               role: "user",
@@ -1296,7 +1308,7 @@ const ChatBot = () => {
             <div className="p-6 bg-slate-900 text-white flex justify-between items-center">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center">
-                  <Bot className="h-5 w-5 text-white" />
+                   <Bot className="h-5 w-5 text-white" />
                 </div>
                 <div>
                   <h4 className="font-black text-sm tracking-tight">EcoTrust AI Assistant</h4>
